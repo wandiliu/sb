@@ -8,13 +8,13 @@ import './mybutton.css';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+export const Button = ({ primary, backgroundColor, labelColor, size, label, ...props }) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
       type="button"
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={ backgroundColor && { backgroundColor }}
+      style={{backgroundColor: backgroundColor, color: labelColor}}
       {...props}
     >
       {label}
@@ -31,6 +31,10 @@ Button.propTypes = {
    * What background color to use
    */
   backgroundColor: PropTypes.string,
+    /**
+   * What label color to use
+   */
+  labelColor: PropTypes.string,
   /**
    * How large should the button be?
    */
@@ -46,8 +50,10 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  // This basically passes in these two as args/selectors into the 'Control' section
   backgroundColor: null,
   labelColor: null,
+  //
   primary: false,
   size: 'medium',
   onClick: undefined,

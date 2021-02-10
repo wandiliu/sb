@@ -8,9 +8,10 @@
     line-height: 150%;
   }
   .storybook-button--primary {
+    /* Setting a default for the primary button here  */
+    background-color: #0D61FF;
     font-weight: 400;
     color: white;
-    background-color: #0D61FF;
   }
   .storybook-button--secondary {
     color: #333;
